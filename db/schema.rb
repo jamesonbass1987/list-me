@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118231749) do
+ActiveRecord::Schema.define(version: 20171119004235) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20171118231749) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.integer "state_id"
+    t.string "abbr"
+    t.string "name"
+    t.string "county_seat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_counties_on_name"
+    t.index ["state_id"], name: "index_counties_on_state_id"
   end
 
   create_table "listing_images", force: :cascade do |t|
@@ -43,6 +54,14 @@ ActiveRecord::Schema.define(version: 20171118231749) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "abbr", limit: 2
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abbr"], name: "index_states_on_abbr"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -70,6 +89,22 @@ ActiveRecord::Schema.define(version: 20171118231749) do
     t.integer "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "zipcodes", force: :cascade do |t|
+    t.string "code"
+    t.string "city"
+    t.integer "state_id"
+    t.integer "county_id"
+    t.string "area_code"
+    t.decimal "lat", precision: 15, scale: 10
+    t.decimal "lon", precision: 15, scale: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_zipcodes_on_code"
+    t.index ["county_id"], name: "index_zipcodes_on_county_id"
+    t.index ["lat", "lon"], name: "index_zipcodes_on_lat_and_lon"
+    t.index ["state_id"], name: "index_zipcodes_on_state_id"
   end
 
 end
