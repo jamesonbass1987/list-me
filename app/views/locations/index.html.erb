@@ -1,0 +1,9 @@
+<h1>List.me Locations</h1>
+
+<ul>
+  <% @locations.each do |location| %>
+    <%= content_tag(:li, location) do %>
+      <%= link_to "#{location.city}, #{location.state}", location_path(location)%>
+    <% end %>
+  <% end %>
+</ul>

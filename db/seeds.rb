@@ -31,5 +31,13 @@ end
 zips = ['91362', '11510', '96815', '60185', '56001', '13090', '11520', '43068', '45040', '07050', '11550']
 zips.each do |post_code|
   location = Location::Zipcode.find_by_code(post_code)
-  Location::Location.create(city: location.city, state: location.state.abbr)
+  Location.create(city: "Portland", state: "OR")
+  Location.create(city: "Los Angeles", state: "CA")
+  Location.create(city: "San Francisco", state: "CA")
+  Location.create(city: "New York", state: "NY")
+end
+
+10.times do
+  listing = Listing.create(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
+  city.listings.build(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
 end

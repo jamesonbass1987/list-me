@@ -1,0 +1,10 @@
+<h1>Listings in <%= @city.full_name %></h1>
+
+
+<ul>
+  <% @listings.each do |listing| %>
+    <%= content_tag(:li, listing) do %>
+      <%= link_to listing.title, location_path(location)%> | <%= listing.price %>
+    <% end %>
+  <% end %>
+</ul>
