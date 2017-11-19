@@ -1,6 +1,6 @@
 require 'memoist'
 
-class State < ActiveRecord::Base
+class Location::State < ActiveRecord::Base
   extend Memoist
   has_many :zipcodes
   has_many :counties

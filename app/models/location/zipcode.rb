@@ -1,4 +1,4 @@
-class Zipcode < ActiveRecord::Base
+class Location::Zipcode < ActiveRecord::Base
   belongs_to :county
   belongs_to :state
 
