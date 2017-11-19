@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :listings, only: [:index, :show]
   end
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :users, only: [:show, :edit, :update]
+  
+  devise_for :users
+  get '/auth/facebook/callback' => 'sessions#create'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
