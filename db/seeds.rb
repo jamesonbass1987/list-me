@@ -38,6 +38,6 @@ zips.each do |post_code|
 end
 
 10.times do
-  listing = Listing.create(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
-  city.listings.build(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
+  listing = Listing.create(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price, user_id: 1, category_id: 1)
+  city.listings.create(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
 end

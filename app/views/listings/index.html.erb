@@ -4,7 +4,7 @@
 <ul>
   <% @listings.each do |listing| %>
     <%= content_tag(:li, listing) do %>
-      <%= link_to listing.title, location_path(location)%> | <%= listing.price %>
+      <%= link_to listing.title, location_listing_path(@city.id, listing.id)%> | <%= number_to_currency(listing.price, unit: '$') %>
     <% end %>
   <% end %>
 </ul>
