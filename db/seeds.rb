@@ -26,3 +26,10 @@ end
 20.times do
   Listing.create(title: Faker::Commerce.product_name, description: Faker::Hipster.paragraph , price: Faker::Commerce.price)
 end
+
+#Location
+zips = ['91362', '11510', '96815', '60185', '56001', '13090', '11520', '43068', '45040', '07050', '11550']
+zips.each do |post_code|
+  location = Location::Zipcode.find_by_code(post_code)
+  Location::Location.create(city: location.city, state: location.state.abbr)
+end

@@ -10,12 +10,12 @@ Application TODO
 
 Add Devise Users Table -->
 
-Map out routes
+- Map out routes
 
-List.me/location/listings
+  - List.me/locations/:slug/listings/:id
+      <!--  slug is location name -->
+  - List.me/users/:id
+    - User profile, overview of users listings
+      <!--  maybe nest listings routes for user to create new listing-->
 
-
-Oauth Login via Facebook/Github/Etc.
-
-
-list.me/locations/listings
+Once in listings, filter by category, post date
