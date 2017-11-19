@@ -58,5 +58,4 @@ gem 'devise'
 gem "rspec-rails", :group => [:development, :test]
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'my_zipcode_gem'
-
 gem 'mocha', group: :test
